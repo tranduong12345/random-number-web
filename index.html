@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đan Viên</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            font-size: 24px;
+            padding: 20px;
+            margin: 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box {
+            font-size: 40px;
+            font-weight: bold;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            position: relative;
+        }
+        .box span {
+            position: absolute;
+            top: -30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function generateAll() {
+            generateRandomNumber();
+            generateMistake();
+            generateThuPhe();
+        }
+
+        function generateRandomNumber() {
+            let randomNumber = Math.floor(Math.random() * 101);
+            let resultElement = document.getElementById("result");
+            resultElement.innerText = randomNumber;
+            resultElement.style.color = randomNumber % 2 === 0 ? "green" : "red";
+            resultElement.parentElement.style.backgroundColor = randomNumber % 2 === 0 ? "lightgreen" : "lightcoral";
+        }
+        
+        function generateMistake() {
+            let mistakeNumber = Math.floor(Math.random() * 101);
+            let mistakeElement = document.getElementById("mistake");
+            mistakeElement.innerText = mistakeNumber;
+            mistakeElement.style.color = mistakeNumber % 2 === 0 ? "green" : "red";
+            mistakeElement.parentElement.style.backgroundColor = mistakeNumber % 2 === 0 ? "lightgreen" : "lightcoral";
+        }
+
+        function generateThuPhe() {
+            let thuPheNumber = Math.floor(Math.random() * 101);
+            let thuPheElement = document.getElementById("thuPhe");
+            thuPheElement.innerText = thuPheNumber;
+            thuPheElement.style.color = thuPheNumber % 2 === 0 ? "green" : "red";
+            thuPheElement.parentElement.style.backgroundColor = thuPheNumber % 2 === 0 ? "lightgreen" : "lightcoral";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="generateAll()">Tạo số</button>
+        </div>
+        <div class="column">
+            <div class="box"><span>Đan Viên</span><div id="result">0</div></div>
+            <div class="box"><span>Sai Lầm</span><div id="mistake">0</div></div>
+            <div class="box"><span>Thu Phế</span><div id="thuPhe">0</div></div>
+        </div>
+    </div>
+</body>
+</html>
